@@ -1,0 +1,14 @@
+import styled from 'styled-components'
+
+export const Container = styled.div`
+    display: flex;
+
+    select{
+        padding: 7px 10px;
+        border-radius: 3px;
+        margin-left: 7px;
+        height: 30px;
+    }
+
+
+`
