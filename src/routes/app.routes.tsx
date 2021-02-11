@@ -11,7 +11,7 @@ const AppRoutes: React.FC = () => (
     <BrowserRouter>
         <Switch>
             <Layout>
-                <Route path='/dashboard' component={Dashboard} exact/>
+                <Route path='/' component={Dashboard} exact/>
                 <Route path='/list/:type' component={List} />
             </Layout>
         </Switch>

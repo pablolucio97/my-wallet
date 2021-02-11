@@ -26,8 +26,8 @@ import {
     }[]
  }
 
-const PieCharts: React.FC<IPieChartProps> = ({data}) => {
-    return (
+const PieCharts: React.FC<IPieChartProps> = ({data}) => 
+     (
         <Container>
             <SideLeft>
                 <h2>Relations</h2>
@@ -67,6 +67,6 @@ const PieCharts: React.FC<IPieChartProps> = ({data}) => {
             </SideRight>
         </Container>
     );
-}
+
 
 export default PieCharts;

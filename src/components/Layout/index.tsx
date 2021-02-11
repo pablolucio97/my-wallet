@@ -6,8 +6,8 @@ import MainHeader from '../MainHeader'
 import Aside from '../Aside'
 import Content from '../Content'
 
-const Layout: React.FC = ({children}) => {
-  return (
+const Layout: React.FC = ({children}) => 
+   (
     <Container>
       <MainHeader/>
       <Content>
@@ -17,6 +17,6 @@ const Layout: React.FC = ({children}) => {
     </Container>
 
   );
-}
+
 
 export default Layout;

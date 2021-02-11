@@ -11,6 +11,8 @@ import {
     Tooltip
 } from 'recharts'
 
+import formatCurrency from '../../utils/formatCurrency'
+
 interface IHistoryBoxProps {
     data: {
         month: string;
@@ -25,8 +27,8 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
     data,
     lineColorAmountEntry,
     lineColorAmountOutput
-}) => {
-    return (
+}) => 
+    (
         <Container>
             <Header>
                 <h2>Balance History</h2>
@@ -46,30 +48,30 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
                     <LineChart data={data} margin={{ top: 5, right: 5, left: 5 }}>
                         <CartesianGrid strokeDasharray='3 3' stroke='#cecece' />
                         <XAxis dataKey='month' stroke='#cecece' />
-                        <Tooltip />
+                        <Tooltip formatter={(value: number) => formatCurrency(Number(value))} />
                         <Line
                             type='monotone'
                             dataKey='amountEntry'
                             name='entrances'
                             stroke={lineColorAmountEntry}
-                            strokeWidth={5}
-                            dot={{ r: 5 }}
-                            activeDot={{ r: 7 }}
+                            strokeWidth={2}
+                            dot={{ r: 4 }}
+                            activeDot={{ r: 5 }}
                         />
                         <Line
                             type='monotone'
                             dataKey='amountOutput'
                             name='budgets'
                             stroke={lineColorAmountOutput}
-                            strokeWidth={5}
-                            dot={{ r: 5 }}
-                            activeDot={{ r: 7 }}
+                            strokeWidth={2}
+                            dot={{ r: 4 }}
+                            activeDot={{ r: 5 }}
                         />
                     </LineChart>
                 </ResponsiveContainer>
             </ChartContainer>
         </Container>
     );
-}
+
 
 export default HistoryBox;

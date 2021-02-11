@@ -3,8 +3,8 @@ import React from 'react';
 
 import { Container, ToggleLabel, Switcher } from './styles';
 
-const Toggle: React.FC = () => {
-  return (
+const Toggle: React.FC = () => 
+   (
     <Container>
       <ToggleLabel>Light</ToggleLabel>
       <Switcher
@@ -17,6 +17,6 @@ const Toggle: React.FC = () => {
     </Container>
 
   );
-}
+
 
 export default Toggle;

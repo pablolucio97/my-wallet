@@ -18,15 +18,15 @@ import {
 
 import logoImg from '../../assets/logo.svg'
 
-const Aside: React.FC = () => {
-  return (
+const Aside: React.FC = () => 
+   (
     <Container>
       <Header>
         <LogoImg src={logoImg} alt='Logo My Wallet' />
         <Title>My Wallet</Title>
       </Header>
       <MenuContainer>
-        <MenuItemLink href='/dashboard'>
+        <MenuItemLink href='/'>
           <MdDashboard/>
           Dashboard
           </MenuItemLink>
@@ -46,6 +46,6 @@ const Aside: React.FC = () => {
     </Container>
 
   );
-}
+
 
 export default Aside;
