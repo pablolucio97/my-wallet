@@ -2,9 +2,8 @@ import React, { useMemo, useState } from 'react';
 
 import emojis from '../../utils/emojis'
 
-import Toggle from '../Toggle'
 
-import { Container, UserName, Welcome, Profile } from './styles';
+import { Container, UserName, Welcome, Profile, Toggle } from './styles';
 
 import {useTheme} from '../../hooks/theme'
 

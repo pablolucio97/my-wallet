@@ -1,10 +1,25 @@
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 
 
 interface ITagProps{
     color: string
 }
+
+
+const animate = keyframes`
+    0%{
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    50%{
+        opacity: .3;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+`
 
 export const Container = styled.div`
     display: flex;
@@ -18,6 +33,7 @@ export const Container = styled.div`
     border-radius: 5px;
     margin: 10px;
     padding: 10px 12px;
+    animation: ${animate} .5s ease;
 
     cursor: pointer;
     transition: all .3s;

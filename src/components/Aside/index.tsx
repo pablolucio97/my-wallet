@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   Container,
@@ -6,7 +6,10 @@ import {
   LogoImg,
   MenuContainer,
   MenuItemLink,
-  Title
+  Title,
+  MenuItemButton,
+  ToggleMenu,
+  ThemeToggleFooter
 } from './styles';
 
 import {
@@ -16,36 +19,72 @@ import {
   MdExitToApp
 } from 'react-icons/md'
 
-import logoImg from '../../assets/logo.svg'
+import { MdMenu, MdClose } from 'react-icons/md'
 
-const Aside: React.FC = () => 
-   (
-    <Container>
+import logoImg from '../../assets/logo.svg'
+import Toggle from '../Toggle'
+
+import { useAuth } from '../../hooks/auth'
+import { useTheme } from '../../hooks/theme'
+
+const Aside: React.FC = () => {
+
+
+  const { signOut } = useAuth()
+  const { theme, toggleTheme } = useTheme()
+
+  const [toggleMenu, setToggleMenu] = useState(false)
+  const [dark, setDark] = useState(() => theme.title === 'dark' ? true : false)
+
+
+  const handleToggleMenu = () => {
+    setToggleMenu(!toggleMenu)
+  }
+
+  const handleTheme = () => {
+    setDark(!dark)
+    toggleTheme()
+  }
+
+  return (
+    <Container isOpen={toggleMenu}>
       <Header>
+        <ToggleMenu onClick={handleToggleMenu}>
+          {toggleMenu ? <MdClose /> : <MdMenu />}
+        </ToggleMenu>
         <LogoImg src={logoImg} alt='Logo My Wallet' />
         <Title>My Wallet</Title>
       </Header>
       <MenuContainer>
         <MenuItemLink href='/'>
-          <MdDashboard/>
+          <MdDashboard />
           Dashboard
           </MenuItemLink>
         <MenuItemLink href='/list/entrances'>
-          <MdArrowUpward/>
+          <MdArrowUpward />
           Entrances
           </MenuItemLink>
         <MenuItemLink href='/list/budgets'>
-          <MdArrowDownward/>
+          <MdArrowDownward />
           Budgets
           </MenuItemLink>
-        <MenuItemLink href='/get-out'>
-          <MdExitToApp/>
+        <MenuItemButton onClick={signOut}>
+          <MdExitToApp />
           Get Out
-          </MenuItemLink>
+          </MenuItemButton>
       </MenuContainer>
+      <ThemeToggleFooter isOpen={toggleMenu}>
+        <Toggle
+          labelLeft='Light'
+          labelRight='Dark'
+          checked={dark}
+          onChange={handleTheme}
+        />
+      </ThemeToggleFooter>
     </Container>
 
-  );
+  )
+};
 
 
 export default Aside;

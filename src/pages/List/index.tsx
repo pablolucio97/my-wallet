@@ -48,7 +48,7 @@ const List: React.FC<IRouteParamTypes> = ({ match }) => {
             lineColor: '#22ddaa',
             listData: gains
         } : ({
-            title: 'Budgetes',
+            title: 'Budgets',
             lineColor: '#e44c4e',
             listData: expenses
         })

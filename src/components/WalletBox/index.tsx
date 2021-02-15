@@ -1,6 +1,6 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
 
-import { Container} from './styles';
+import { Container } from './styles';
 
 import CountUp from 'react-countup'
 
@@ -8,7 +8,7 @@ import dollarImg from '../../assets/dollar.svg'
 import arrowUp from '../../assets/arrow-up.svg'
 import arrowDown from '../../assets/arrow-down.svg'
 
-interface IWalletBox{
+interface IWalletBox {
     title: string;
     amount: number;
     footerLabel: string;
@@ -25,33 +25,34 @@ const WalletBox: React.FC<IWalletBox> = ({
 }) => {
 
 
-    const iconSelected =  useMemo(() => {
-        switch(icon){
-            case'dollar':
-            return dollarImg;
-            case'arrowUp':
-            return arrowUp;
-            case'arrowDown':
-            return arrowDown;
+    const iconSelected = useMemo(() => {
+        switch (icon) {
+            case 'dollar':
+                return dollarImg;
+            case 'arrowUp':
+                return arrowUp;
+            case 'arrowDown':
+                return arrowDown;
         }
-    },[icon])
+    }, [icon])
 
-  return (
-      <Container color={color}>
-          <span>{title}</span>
-          <h1>
-          <CountUp
-            end={amount}
-            start={500}
-            prefix='R$ '
-            separator='.'
-            decimal=','
-          />
-          </h1>
-          <small>{footerLabel}</small>
-          <img src={iconSelected} alt={title}/> 
-      </Container>
-  );
+    return (
+        <Container color={color}>
+            <span>{title}</span>
+            <h1>
+                <strong>R$ </strong>
+                <CountUp
+                    end={amount}
+                    start={500}
+                    separator='.'
+                    decimal=','
+                    decimals={2}
+                />
+            </h1>
+            <small>{footerLabel}</small>
+            <img src={iconSelected} alt={title} />
+        </Container>
+    );
 }
 
 export default WalletBox;

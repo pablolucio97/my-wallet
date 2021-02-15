@@ -10,10 +10,10 @@ const Layout: React.FC = ({children}) =>
    (
     <Container>
       <MainHeader/>
+      <Aside/>
       <Content>
         {children}
       </Content>
-      <Aside/>
     </Container>
 
   );
